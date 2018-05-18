@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="ToDoList" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Angular TODO</title>
+</head>
+<body>
+    
+    <div class="list-container">
+        <h1>TODO List</h1>
+        <p>A place to store the things you have to do!</p>
+        <input type="text" placeholder="Filter your to-dos">
+
+        <section ng-controller="ToDoInfo as info">
+            <div class="listitems">
+                <ol class="list">
+                    <li ng-repeat="item in info.listitems track by $index" ng-class="{'completed': item.completed === true}">
+                        <!-- <div around list items and div around complete button and task name then display flex and space between</div> -->
+                        <input ng-if= "item.completed === false" class="completebtn" type="button" value="Complete">
+                        {{ item.task }}
+                        <i ng-click="info.removeItem($index)" class="material-icons delete">clear</i>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+        <input type="text" placeholder="Add your to do">
+        <input class="addbtn" type="button" value="Add"> </div>
+    
+    </div>  
+
+
+    <!-- AngularJS link must be above our module.js file -->
+    <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
+    <!-- Module must be linked before controller -->
+    <script src="todoApp.js"></script>
+    <script src="Todocontroller.js"></script>
+</body>
+</html>
