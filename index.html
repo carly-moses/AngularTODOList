@@ -14,25 +14,37 @@
     <div class="list-container">
         <h1>TODO List</h1>
         <p>A place to store the things you have to do!</p>
-        <input type="text" placeholder="Filter your to-dos">
 
         <section ng-controller="ToDoInfo as info">
+            <input type="text" placeholder="Filter your to-dos" ng-model= "search.task">
+
             <div class="listitems">
                 <ol class="list">
-                    <li ng-repeat="item in info.listitems track by $index" ng-class="{'completed': item.completed === true}">
+                    <li ng-repeat="item in info.listitems | filter : search" ng-class="{'completed': item.completed === true}">
                         <!-- <div around list items and div around complete button and task name then display flex and space between</div> -->
-                        <input ng-if= "item.completed === false" class="completebtn" type="button" value="Complete">
+                        <input ng-click="info.completeTask($index, item.completed);" ng-if= "item.completed === false" class="completebtn" type="button" value="Complete">
                         {{ item.task }}
-                        <i ng-click="info.removeItem($index)" class="material-icons delete">clear</i>
+                        <!-- Add button to focus where click can remove task more -->
+                        <a class="edit" href="" ng-click="info.editTask($index, info);">Edit</a>
+                        <i ng-click="info.removeTask($index)" class="material-icons delete">clear</i>
                     </li>
                 </ol>
             </div>
+
+            <div class="add-task">
+                <form ng-submit="info.addTask(info.listitems.task);">
+                    <input ng-model="info.listitems.task" type="text" placeholder="Add your to do">
+                    <button class="addbtn" value="Add">Add</button>
+                </form>
+            </div>
+
+            <form ng-submit="info.updateTask(info.tempIndex, info.tempTask);" ng-show="info.showForm">
+                <input class="edit-input" type="text" ng-model="info.tempTask.task" placeholder="Edit Task">
+                <a class="task-incomplete" href="" ng-click="info.inComplete(info.tempIndex, item.completed)">Mark Task Incomplete</a>
+                <button class="edit-btn">Update the Item</button>
+            </form>
         </section>
 
-
-        <input type="text" placeholder="Add your to do">
-        <input class="addbtn" type="button" value="Add"> </div>
-    
     </div>  
 
 

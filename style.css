@@ -41,16 +41,45 @@ ol {
     padding-left: 45px; 
 }
 
+li {
+    margin: 5px; 
+}
+
 input {
     color: #bbb; 
     padding: 10px; 
     border-radius: 5px; 
     border: 1px solid #bbb; 
     margin: 10px; 
+    width: 90%; 
 }
+
 
 ::placeholder{
     color: #bbb; 
+}
+
+.edit {
+    position: absolute;
+    right: 0; 
+    margin-right: 60px; 
+    border: 1px solid black; 
+    padding: 3px;
+    border-radius: 5px; 
+    text-decoration: none;
+    color: black; 
+    font-size: 15px; 
+}
+
+.task-incomplete {
+    display: block; 
+    text-align: center; 
+    border: 1px solid black; 
+    padding: 3px;
+    border-radius: 10px; 
+    text-decoration: none;
+    color: #ff1493;  
+    margin: 5px; 
 }
 
 .completebtn {
@@ -69,10 +98,13 @@ i {
 }
 
 
-.addbtn {
+.addbtn, .edit-btn {
     background-color: #ff1493;
     color: #eee; 
-
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 5px; 
+    font-size: 15px; 
 }
 
 @media only screen and (min-width: 768px) {
