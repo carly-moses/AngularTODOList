@@ -2,7 +2,7 @@
 <html ng-app="ToDoList" lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <met a name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="style.css" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
@@ -25,7 +25,7 @@
                         <input ng-click="info.completeTask($index, item.completed);" ng-if= "item.completed === false" class="completebtn" type="button" value="Complete">
                         {{ item.task }}
                         <!-- Add button to focus where click can remove task more -->
-                        <a class="edit" href="" ng-click="info.editTask($index, info);">Edit</a>
+                        <i class="material-icons edit" ng-click="info.editTask($index, info);">edit</i>
                         <i ng-click="info.removeTask($index)" class="material-icons delete">clear</i>
                     </li>
                 </ol>
@@ -52,6 +52,6 @@
     <script src="https://code.angularjs.org/1.6.5/angular.min.js"></script>
     <!-- Module must be linked before controller -->
     <script src="todoApp.js"></script>
-    <script src="Todocontroller.js"></script>
+    <script src="TodoController.js"></script>
 </body>
 </html>

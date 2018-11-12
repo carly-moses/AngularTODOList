@@ -47,7 +47,6 @@ function ToDoInfo(){
             completed: false
         });
         vm.showForm = false; 
-    
     };
 
 
